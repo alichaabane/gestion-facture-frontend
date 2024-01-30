@@ -1,0 +1,42 @@
+.home {
+  .title {
+    color: var(--secondary-color);
+    font-weight: bold
+  }
+  .logo {
+    width: 264px;
+    height: 100px;
+  }
+  .banner-image {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .banner-image-mobile {
+    background-image: url('/assets/images/home_banner_mobile.webp');
+    background-size: contain;
+    background-position: right;
+  }
+  .banner-image-web {
+    background-image: url('/assets/images/fiori-sotto100kb.webp');
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  .banner-image-2 {
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: 30%;
+  }
+  .text {
+    color: var(--secondary-color);
+    font-size: 24px;
+    padding: 0 16px
+  }
+  .btn-confirm {
+    color: white;
+    background-color: var(--secondary-color);
+    font-weight: bold;
+    padding: 8px 75px !important;
+  }
+}
