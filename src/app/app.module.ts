@@ -16,6 +16,8 @@ import {ToastrModule} from "ngx-toastr";
 import {MatPaginatorIntl} from "@angular/material/paginator";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {CustomPaginatorIntl} from "./shared/CustomPaginatorIntl";
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import {LayoutModule} from "./core/layout/layout.module";
 
 @NgModule({
   declarations: [
@@ -27,7 +29,7 @@ import {CustomPaginatorIntl} from "./shared/CustomPaginatorIntl";
     AppRoutingModule,
     HttpClientModule,
     NgOptimizedImage,
-    NgxSpinnerModule.forRoot({ type: 'ball-clip-rotate-pulse' }),
+    NgxSpinnerModule.forRoot({type: 'ball-clip-rotate-pulse'}),
     ToastrModule.forRoot({
       timeOut: 3000,
       progressBar: false,
@@ -38,7 +40,8 @@ import {CustomPaginatorIntl} from "./shared/CustomPaginatorIntl";
     SharedModule,
     CoreModule,
     AppRoutingModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    LayoutModule
   ],
   providers: [
     { provide: MatDialogRef, useValue: {}}, { provide: MAT_DIALOG_DATA, useValue: {} },

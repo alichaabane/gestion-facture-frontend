@@ -2,12 +2,15 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {LoginComponent} from "./pages/login/login.component";
 import {RegisterComponent} from "./pages/register/register.component";
+import {ProduitsComponent} from "./pages/produits/produits.component";
+import {UtilisateursComponent} from "./pages/utilisateurs/utilisateurs.component";
+import {DashboardComponent} from "./pages/dashboard/dashboard.component";
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'home', // Redirect to 'home'
+    redirectTo: 'produits', // Redirect to 'produits'
   },
   {
     path: 'login',
@@ -20,6 +23,24 @@ const routes: Routes = [
     component: RegisterComponent,
     loadChildren: () =>
       import('./pages/register/register.module').then((m) => m.RegisterModule),
+  },
+  {
+    path: 'produits',
+    component: ProduitsComponent,
+    loadChildren: () =>
+      import('./pages/produits/produits.module').then((m) => m.ProduitsModule),
+  },
+  {
+    path: 'utilisateurs',
+    component: UtilisateursComponent,
+    loadChildren: () =>
+      import('./pages/utilisateurs/utilisateurs.module').then((m) => m.UtilisateursModule),
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    loadChildren: () =>
+      import('./pages/dashboard/dashboard.module').then((m) => m.DashboardModule),
   },
   {
     path: '**',

@@ -43,6 +43,10 @@ export class UserService {
     return this.http.get(`${this.USER_URL}/all`);
   }
 
+  countUsersByMonth() : Observable<any> {
+    return this.http.get(`${this.USER_URL}/count-by-month`);
+  }
+
  getAllUsersPaginated(page: number, pageSize: number): Observable<Pagination<any>>  {
    // Set up query parameters for pagination
    const params = new HttpParams()
@@ -89,7 +93,7 @@ export class UserService {
 
   public async isAdmin() {
     const user = await this.getUser();
-    return user?.role === 'SUPER_ADMIN';
+    return user?.role === 'ADMIN';
   }
 
   public removeToken(): void {

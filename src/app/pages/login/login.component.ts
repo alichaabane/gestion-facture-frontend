@@ -51,8 +51,9 @@ export class LoginComponent implements OnInit {
               if (res.user && res.user.confirmed === true) {
                 this.userService.authenticated.next(true);
                 this.spinner.hide();
-                this.router.navigate(['/home']);
-                this.toastrService.success('<span class="me-2">' + this.userService.getUser()?.username + '</span>' + 'Bienvenue Cher(e) ');
+                this.router.navigate(['/dashboard']);
+                this.toastrService.success('<span class="me-2"> Bienvenue Cher(e) ' +
+                  res?.user?.prenom + ' ' + res?.user?.nom + '</span>');
               } else {
                 this.spinner.hide();
                 this.userService.authenticated.next(false);
@@ -68,8 +69,6 @@ export class LoginComponent implements OnInit {
             console.log(error)
             if (error.error === 'User not found') {
               this.toastrService.error('Utilisateur non trouvé !');
-            } else if (error.error === 'Invalid username or password') {
-              this.toastrService.error('Vérifier vos coordonnées SVP !');
             } else if (error.error === 'User not confirmed') {
               this.toastrService.info('Compte non activé, veuillez contacter l\'administrateur ');
             } else {

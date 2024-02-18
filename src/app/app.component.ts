@@ -20,7 +20,7 @@ export class AppComponent implements  OnInit, AfterViewInit {
         setTimeout(() => {
           this.currentRoute = this.route.root.firstChild?.snapshot.routeConfig?.path || null;
           if(!this.currentRoute) {
-            this.router.navigate(['/home']).then();
+            this.router.navigate(['/dashboard']).then();
           }
         }, 0);
       });
@@ -36,7 +36,7 @@ export class AppComponent implements  OnInit, AfterViewInit {
 
   getCurrentUserWithInterval() {
     if (this.userService.getUser() && this.userService.getToken()) {
-      const checkIntervalInMilliseconds = 100000; // each 10 minutes in milliseconds
+      const checkIntervalInMilliseconds = 100000; // each 10 minutes in milliseconds verify is user connected
 
       interval(checkIntervalInMilliseconds)
         .pipe(

@@ -177,6 +177,12 @@
     }
 
     .logo{
+      img {
+        height: 120px;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+      }
         position: relative;
         padding: $padding-base-vertical $padding-base-horizontal;
         z-index: 4;
@@ -354,6 +360,7 @@
 .panel-header {
   height: 260px;
   padding-top: 80px;
+  padding-left: 300px;
   padding-bottom: 45px;
   @include panel-gradient($black-color);
   position: relative;

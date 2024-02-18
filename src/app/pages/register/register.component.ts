@@ -11,7 +11,7 @@ import {UserService} from "../../core/services/http/user.service";
 })
 export class RegisterComponent implements OnInit {
 
-  username: string = "";
+  cin: string = "";
   password: string = "";
   show: boolean = false;
 
@@ -69,11 +69,11 @@ export class RegisterComponent implements OnInit {
             this.toastrService.success("Compte crée avec succés !, vous pouvez maintenant contacter votre administrateur pour confirmer !");
             setTimeout(() => {
               this.router.navigate(['/login']);
-            }, 3000)
+            }, 5000)
           }
         },
         error => {
-          if (error && error.error === 'USER EXISTS') {
+          if (error && error.error === 'User with this CIN number already exists') {
             this.toastrService.error('CIN est déja utlisé !');
           } else {
             this.toastrService.error('Erreur de création d\'un nouveau compte ');

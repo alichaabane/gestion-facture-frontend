@@ -1,9 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {UserService} from "../shared/service/http/user.service";
 import {ActivatedRoute, NavigationEnd, Route, Router} from "@angular/router";
 import {filter} from "rxjs";
-import {SocialAuthService} from "@abacritt/angularx-social-login";
 import {NgxSpinnerService} from "ngx-spinner";
+import {UserService} from "../services/http/user.service";
 
 @Component({
   selector: 'app-layout',
@@ -13,11 +12,10 @@ import {NgxSpinnerService} from "ngx-spinner";
 export class LayoutComponent implements OnInit {
 
   user: any;
-  currentRoute = null;
-  canSee: boolean = false;
+  currentRoute: string = null;
   isAdmin: boolean = false;
 
-  constructor(private userService: UserService, private authService: SocialAuthService,
+  constructor(private userService: UserService,
               private spinner: NgxSpinnerService,
               private router: Router, private route: ActivatedRoute) {
     this.router.events
@@ -30,7 +28,7 @@ export class LayoutComponent implements OnInit {
           if(!this.user  && this.currentRoute != 'login' && this.currentRoute != 'register') {
             this.router.navigate(['/login'])
           } else if (this.user  && (this.currentRoute == '' || this.currentRoute == '/') ) {
-            this.router.navigate(['/actualite-mgm'])
+            this.router.navigate(['/dashboard'])
           }
         }, 100);
       });
@@ -39,16 +37,11 @@ export class LayoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.userService.getUser();
-    this.canSee = this.checkEligibleToSeePage();
     this.isAdmin = this.checkAdmin();
   }
 
-  checkEligibleToSeePage() {
-    return this.user && (this.user?.regionResponsableId !== null || (this.user?.role === 'SUPER_ADMIN' ));
-  }
-
   checkAdmin() {
-    return this.user && this.user?.role === 'SUPER_ADMIN';
+    return this.user && this.user?.role === 'ADMIN';
   }
 
   async logout() {
@@ -56,13 +49,10 @@ export class LayoutComponent implements OnInit {
     setTimeout(() => {
       this.spinner.hide();
       this.userService.removeAllStorage();
-      this.signOut();
     }, 400);
 
    }
-  async signOut() {
-    await this.authService.signOut(true);
-  }
+
 
 
 }

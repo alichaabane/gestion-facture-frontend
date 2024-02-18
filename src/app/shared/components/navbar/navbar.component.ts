@@ -1,9 +1,9 @@
 import {Component, OnInit, ElementRef} from '@angular/core';
 import {ROUTES} from '../sidebar/sidebar.component';
-import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
+import {Location} from '@angular/common';
 import {Router} from '@angular/router';
 import Chart from 'chart.js';
-import {UserService} from "../../service/http/user.service";
+import {UserService} from "../../../core/services/http/user.service";
 
 @Component({
   selector: 'app-navbar',
@@ -133,6 +133,7 @@ export class NavbarComponent implements OnInit {
 
       $layer.onclick = function () { //asign a function
         html.classList.remove('nav-open');
+        // @ts-ignore
         this.mobile_menu_visible = 0;
         $layer.classList.remove('visible');
         setTimeout(function () {

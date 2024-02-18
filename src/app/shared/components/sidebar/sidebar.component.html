@@ -1,22 +1,19 @@
 
-<div class="logo">
-  <a href="https://www.facebook.com/aamjustice" target="_blank" rel="noopener" class="simple-text logo-mini">
-      <div class="logo-img">
-        <img src="./assets/images/Coat_of_arms_of_Tunisia.svg.png" alt="" />
-      </div>
-    </a>
-  <a href="https://www.facebook.com/aamjustice" target="_blank" rel="noopener" class="simple-text logo-mini">
-      <b>ودادية أعوان وزارة العدل</b>
+<div class="logo text-center">
+  <img src="./assets/images/favicon.ico" alt="" />
+  <br>
+  <a href="" target="_blank" rel="noopener" class="simple-text ">
+      <b>Gestion Facture App</b>
     </a>
 </div>
 <div class="sidebar-wrapper">
     <ul class="nav">
         <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
-            <a [routerLink]="[menuItem.path]" *ngIf="menuItem.title !== 'خروج' && !menuItem.isAdminPage">
+            <a [routerLink]="[menuItem.path]" *ngIf="menuItem.title !== 'Déconnecter' && !menuItem.isAdminPage">
                 <i class="now-ui-icons {{menuItem.icon}}"></i>
                 <p>{{menuItem.title}}</p>
             </a>
-          <a (click)="logout()" *ngIf="menuItem.title === 'خروج'">
+          <a (click)="logout()" *ngIf="menuItem.title === 'Déconnecter'">
                 <i class="now-ui-icons {{menuItem.icon}}"></i>
                 <p>{{menuItem.title}}</p>
             </a>

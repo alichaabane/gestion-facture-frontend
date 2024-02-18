@@ -21,25 +21,48 @@
             <mat-form-field style="width: 300px;">
               <input formControlName="prenom" matInput placeholder="Prenom" type="text">
             </mat-form-field><br>
+            <div *ngIf="signUpForm.get('prenom')?.hasError('required')  && signUpForm.get('prenom')?.dirty "
+                 class="text-danger">
+              Tapper le champ Prenom
+            </div>
             <mat-form-field style="width: 300px;">
               <input formControlName="nom" matInput placeholder="Nom" type="text">
             </mat-form-field><br>
+            <div *ngIf="signUpForm.get('nom')?.hasError('required')  && signUpForm.get('nom')?.dirty "
+                 class="text-danger">
+              Tapper le champ Nom
+            </div>
             <mat-form-field style="width: 300px;">
               <input formControlName="cin" matInput placeholder="CIN" type="text">
             </mat-form-field><br>
+            <div *ngIf="signUpForm.get('cin')?.hasError('required')  && signUpForm.get('cin')?.dirty "
+                 class="text-danger">
+              Tapper le champ CIN
+            </div>
+            <mat-form-field style="width: 300px;">
+              <input formControlName="age" matInput placeholder="age" type="text">
+            </mat-form-field><br>
+            <div *ngIf="signUpForm.get('age')?.hasError('required')  && signUpForm.get('age')?.dirty "
+                 class="text-danger">
+              Tapper le champ Age
+            </div>
             <mat-form-field style="width: 300px;" >
               <input formControlName="password" class="pwd" matInput placeholder="Password" type="password" [type]="passwordFieldType">
               <mat-icon matSuffix (click)="togglePasswordVisibility()">
                 {{ showPassword ? 'visibility_off' : 'visibility' }}
               </mat-icon>
             </mat-form-field><br>
+            <div *ngIf="signUpForm.get('password')?.hasError('required')  && signUpForm.get('password')?.dirty "
+                 class="text-danger">
+              Tapper le champ Confirmer Password
+            </div>
             <mat-form-field style="width: 300px;">
               <input formControlName="confirmPassword" class="pwd" matInput placeholder="Confirmer Password" type="password" [type]="confirmPasswordFieldType">
               <mat-icon matSuffix (click)="toggleConfirmPasswordVisibility()">
                 {{ showConfirmPassword ? 'visibility_off' : 'visibility' }}
               </mat-icon>
             </mat-form-field><br>
-            <div *ngIf="signUpForm.get('confirmPassword')?.hasError('required')  && signUpForm.get('password')?.dirty "
+            <div *ngIf="signUpForm.get('confirmPassword')?.hasError('required')  && signUpForm.get('confirmPassword')?.dirty "
                  class="text-danger">
               Tapper le champ Confirmer Password
             </div>
