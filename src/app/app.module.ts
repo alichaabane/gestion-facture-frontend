@@ -5,12 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {SharedModule} from "./shared/shared.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {HttpClientModule, provideHttpClient, withInterceptors} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {NgOptimizedImage} from "@angular/common";
 import {RouterModule} from "@angular/router";
-import {AuthInterceptor} from "./core/interceptors/auth.interceptor";
+import {AuthenticationInterceptor} from "./core/interceptors/auth.interceptor";
 import {CoreModule} from "./core/core.module";
+import {NgxSpinnerModule} from "ngx-spinner";
+import {ToastrModule} from "ngx-toastr";
+import {MatPaginatorIntl} from "@angular/material/paginator";
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {CustomPaginatorIntl} from "./shared/CustomPaginatorIntl";
 
 @NgModule({
   declarations: [
@@ -22,14 +27,27 @@ import {CoreModule} from "./core/core.module";
     AppRoutingModule,
     HttpClientModule,
     NgOptimizedImage,
+    NgxSpinnerModule.forRoot({ type: 'ball-clip-rotate-pulse' }),
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      progressBar: false,
+      enableHtml: true,
+    }),
     NgbModule,
     RouterModule,
     SharedModule,
     CoreModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxSpinnerModule
   ],
   providers: [
-    provideHttpClient(withInterceptors([AuthInterceptor]))
+    { provide: MatDialogRef, useValue: {}}, { provide: MAT_DIALOG_DATA, useValue: {} },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthenticationInterceptor,
+      multi: true
+    },
+    { provide: MatPaginatorIntl, useClass: CustomPaginatorIntl },
   ],
   exports: [SharedModule, CoreModule],
   bootstrap: [AppComponent]

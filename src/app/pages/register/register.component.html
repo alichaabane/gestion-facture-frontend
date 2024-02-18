@@ -1,0 +1,77 @@
+<div fxLayout="column" fxLayoutAlign="center center" class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <mat-card>
+        <mat-card-header class="justify-content-center">
+          <mat-card-title class="d-block">
+            <div class="row">
+              <div class="col d-flex justify-content-center align-items-center">
+                <img src="assets/images/favicon.ico" alt="Logo" style="width: 100px; height: 100px;">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col d-flex justify-content-center align-items-center">
+                <b>Création d'un compte</b>
+              </div>
+            </div>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content style="direction: ltr !important;">
+          <form fxLayout="column" [formGroup]="signUpForm" (ngSubmit)="register()">
+            <mat-form-field style="width: 300px;">
+              <input formControlName="prenom" matInput placeholder="Prenom" type="text">
+            </mat-form-field><br>
+            <mat-form-field style="width: 300px;">
+              <input formControlName="nom" matInput placeholder="Nom" type="text">
+            </mat-form-field><br>
+            <mat-form-field style="width: 300px;">
+              <input formControlName="cin" matInput placeholder="CIN" type="text">
+            </mat-form-field><br>
+            <mat-form-field style="width: 300px;" >
+              <input formControlName="password" class="pwd" matInput placeholder="Password" type="password" [type]="passwordFieldType">
+              <mat-icon matSuffix (click)="togglePasswordVisibility()">
+                {{ showPassword ? 'visibility_off' : 'visibility' }}
+              </mat-icon>
+            </mat-form-field><br>
+            <mat-form-field style="width: 300px;">
+              <input formControlName="confirmPassword" class="pwd" matInput placeholder="Confirmer Password" type="password" [type]="confirmPasswordFieldType">
+              <mat-icon matSuffix (click)="toggleConfirmPasswordVisibility()">
+                {{ showConfirmPassword ? 'visibility_off' : 'visibility' }}
+              </mat-icon>
+            </mat-form-field><br>
+            <div *ngIf="signUpForm.get('confirmPassword')?.hasError('required')  && signUpForm.get('password')?.dirty "
+                 class="text-danger">
+              Tapper le champ Confirmer Password
+            </div>
+            <div *ngIf="signUpForm.get('confirmPassword').value !== signUpForm.get('password').value && signUpForm.get('confirmPassword').dirty" class="text-danger">
+              les deux mots de passe ne correspondent pas
+            </div>
+            <mat-form-field style="width: 300px;">
+              <input formControlName="email" matInput placeholder="Email" type="text">
+            </mat-form-field><br>
+            <div *ngIf="signUpForm.get('email')?.hasError('required')  && signUpForm.get('email')?.dirty "
+                 class="text-danger">
+              Tapper le champ Email
+            </div>
+
+
+            <mat-form-field style="width: 300px;">
+              <input formControlName="telephone" matInput placeholder="telephone" type="text">
+            </mat-form-field><br>
+            <div class="justify-content-end text-end">
+              <a class="text-end" href="/login" routerLink="/login">Avez vous déja un compte ? </a>
+              <br><br>
+            </div>
+            <button [disabled]="signUpForm.get('confirmPassword').value !== signUpForm.get('password').value || signUpForm.invalid" class="justify-content-center"
+                    style="width: 300px; background: #8a2226db"
+                    type="submit"
+                    [ngStyle]="{'opacity': signUpForm?.invalid ? '0.4' : '1',
+                    'color': signUpForm?.invalid ? 'black' : 'white',
+                    'background-color': signUpForm?.invalid ? 'gray' : '#8a2226db'}"
+                    mat-raised-button color="primary">Crée un compte</button>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -1,19 +1,31 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { LoginRoutingModule } from './login-routing.module';
-import { LoginComponent } from './login.component';
-import {SharedModule} from "../../shared/shared.module";
-
+import {MatIconModule} from "@angular/material/icon";
+import {MatButtonModule} from "@angular/material/button";
+import {MatDialogModule} from "@angular/material/dialog";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
+import {LoginComponent} from "./login.component";
+import {MatCardModule} from "@angular/material/card";
+import {MatInputModule} from "@angular/material/input";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {NgxSpinnerModule} from "ngx-spinner";
 
 @NgModule({
-  declarations: [
-    LoginComponent
-  ],
-    imports: [
-        CommonModule,
-        LoginRoutingModule,
-        SharedModule
-    ]
+  declarations: [LoginComponent],
+  imports: [
+    CommonModule,
+    MatCardModule,
+    FormsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatButtonModule,
+    MatDialogModule,
+    ReactiveFormsModule,
+    NgbTooltipModule,
+    NgxSpinnerModule
+  ]
 })
+
 export class LoginModule { }

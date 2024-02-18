@@ -37,7 +37,13 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss",
+              "node_modules/material-design-icons/iconfont/material-icons.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/ngx-spinner/animations/ball-clip-rotate-pulse.css",
+              "src/assets/styles/now-ui-dashboard.scss",
+              "src/assets/styles/toastr.css",
               "node_modules/bootstrap/scss/bootstrap.scss",
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
             ],
@@ -108,7 +114,13 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss",
+              "node_modules/material-design-icons/iconfont/material-icons.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/ngx-spinner/animations/ball-clip-rotate-pulse.css",
+              "src/assets/styles/now-ui-dashboard.scss",
+              "src/assets/styles/toastr.css",
               "node_modules/bootstrap/scss/bootstrap.scss",
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
             ],

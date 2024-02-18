@@ -1,3 +1,59 @@
-<div class="container-fluid">
-  <!-- TODO : Login Page Implementation -->
+<div fxLayout="column" fxLayoutAlign="center center" class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <mat-card>
+        <mat-card-header class="justify-content-center">
+          <mat-card-title class="d-block">
+            <div class="row">
+              <div class="col d-flex justify-content-center align-items-center">
+                <img src="assets/images/favicon.ico" alt="Logo" style="width: 100px; height: 100px;">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col d-flex justify-content-center align-items-center">
+                <b>Application de gestion de facture</b>
+              </div>
+              <br><br>
+            </div>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <form fxLayout="column" [formGroup]="signInForm" (ngSubmit)="login()">
+            <mat-form-field style="width: 350px;">
+              <input formControlName="cin" matInput placeholder="cin" type="text">
+            </mat-form-field>
+            <div *ngIf="signInForm.get('cin')?.hasError('required')  && signInForm.get('cin')?.dirty "
+                 class="text-danger">
+              Tapper le champ CIN
+            </div>
+            <br>
+            <mat-form-field style="width: 350px;">
+              <input formControlName="password" class="pwd" matInput placeholder="password" type="password"
+                     [type]="passwordFieldType">
+              <mat-icon matSuffix (click)="togglePasswordVisibility()">
+                {{ showPassword ? 'visibility_off' : 'visibility' }}
+              </mat-icon>
+            </mat-form-field>
+            <div *ngIf="signInForm.get('password')?.hasError('required')  && signInForm.get('password')?.dirty"
+                 class="text-danger">
+              Tapper le champ Password
+            </div>
+            <br>
+            <div class="justify-content-end text-end">
+              <a class="text-end" href="/register" routerLink="/register">Vous n'avez pas encore un compte ? s'enregistrer </a>
+              <br><br>
+            </div>
+            <button [disabled]="signInForm?.invalid" type="submit"
+                    class="justify-content-center" style="width: 350px; background: #8a2226db"
+                    [ngStyle]="{'opacity': signInForm?.invalid ? '0.4' : '1',
+                    'color': signInForm?.invalid ? 'black' : 'white',
+                    'background-color': signInForm?.invalid ? 'gray' : '#8a2226db'}"
+                    mat-raised-button>se Connecter
+            </button>
+            <br><br>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
 </div>

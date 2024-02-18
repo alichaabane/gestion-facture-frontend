@@ -1,7 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import 'bootstrap/scss/bootstrap';
+@import "./assets/vendors/feather-icons/feather.css";
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+@import 'assets/styles/toastr.css';
 
 .full-height {
   height: 100vh;
+}
+
+
+.cdk-overlay-container, .cdk-global-overlay-wrapper {
+  pointer-events: none;
+  top: 20px;
+  bottom: 10px;
+  left: 0;
+  height: 100%;
+  width: 100%;
 }
