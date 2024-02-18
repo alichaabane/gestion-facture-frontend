@@ -40,7 +40,7 @@
               Tapper le champ CIN
             </div>
             <mat-form-field style="width: 300px;">
-              <input formControlName="age" matInput placeholder="age" type="text">
+              <input formControlName="age" matInput placeholder="age" type="number">
             </mat-form-field><br>
             <div *ngIf="signUpForm.get('age')?.hasError('required')  && signUpForm.get('age')?.dirty "
                  class="text-danger">

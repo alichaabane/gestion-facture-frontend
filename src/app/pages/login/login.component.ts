@@ -11,7 +11,7 @@ import {UserService} from "../../core/services/http/user.service";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  username: string = "";
+  cin: string = "";
   password: string = "";
   show: boolean = false;
 

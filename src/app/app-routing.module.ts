@@ -5,6 +5,8 @@ import {RegisterComponent} from "./pages/register/register.component";
 import {ProduitsComponent} from "./pages/produits/produits.component";
 import {UtilisateursComponent} from "./pages/utilisateurs/utilisateurs.component";
 import {DashboardComponent} from "./pages/dashboard/dashboard.component";
+import {AuthGuard} from "./core/guards/auth.guard";
+import {AddUtilisateurComponent} from "./pages/utilisateurs/add-utilisateur/add-utilisateur.component";
 
 const routes: Routes = [
   {
@@ -26,18 +28,33 @@ const routes: Routes = [
   },
   {
     path: 'produits',
+    canActivate: [AuthGuard], // Apply the guard to this route
     component: ProduitsComponent,
     loadChildren: () =>
       import('./pages/produits/produits.module').then((m) => m.ProduitsModule),
   },
   {
     path: 'utilisateurs',
-    component: UtilisateursComponent,
-    loadChildren: () =>
-      import('./pages/utilisateurs/utilisateurs.module').then((m) => m.UtilisateursModule),
+    canActivate: [AuthGuard], // Apply the guard to this route
+    component: UtilisateursComponent, // Ensure this component is correctly imported
   },
   {
+    path: 'add-utilisateur',
+    canActivate: [AuthGuard], // Apply the guard to this route
+    component: AddUtilisateurComponent,
+    data: { editMode: false }, // Add this data property to indicate "add" mode
+  },
+  {
+    path: 'edit-utilisateur/:id', // Use a parameter for the Utilisateur ID
+    canActivate: [AuthGuard], // Apply the guard to this route
+    component: AddUtilisateurComponent,
+    data: { editMode: true }, // Add this data property to indicate "edit" mode
+  },
+// Add other routes for 'utilisateurs' here if needed
+
+  {
     path: 'dashboard',
+    canActivate: [AuthGuard], // Apply the guard to this route
     component: DashboardComponent,
     loadChildren: () =>
       import('./pages/dashboard/dashboard.module').then((m) => m.DashboardModule),

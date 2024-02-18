@@ -15,9 +15,9 @@ export class SweetAlertService {
       showCloseButton: true,
       showCancelButton: true,
       focusConfirm: false,
-      reverseButtons: true,
-      confirmButtonText: 'نعم',
-      cancelButtonText: 'لا',
+      reverseButtons: false,
+      confirmButtonText: 'Oui',
+      cancelButtonText: 'Non',
       customClass: {
         confirmButton: 'btn btn-success',
         cancelButton: 'btn btn-primary'
@@ -33,8 +33,8 @@ export class SweetAlertService {
       showCancelButton: false,
       showConfirmButton: true,
       focusConfirm: false,
-      reverseButtons: true,
-      confirmButtonText: 'حسنا',
+      reverseButtons: false,
+      confirmButtonText: 'OK',
       customClass: {
         confirmButton: 'btn btn-danger'
       },
@@ -49,7 +49,7 @@ export class SweetAlertService {
       showCancelButton: true,
       showConfirmButton: false,
       focusCancel: false,
-      cancelButtonText: 'حسنا',
+      cancelButtonText: 'OK',
       timer: 7000
     });
   }
@@ -62,11 +62,11 @@ export class SweetAlertService {
       showCancelButton: true,
       showConfirmButton: false,
       focusCancel: true,
-      reverseButtons: true,
+      reverseButtons: false,
       customClass: {
         cancelButton: 'btn btn-success'
       },
-      cancelButtonText: 'حسنا',
+      cancelButtonText: 'OK',
       timer: 4000
     });
   }

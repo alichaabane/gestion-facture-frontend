@@ -1,0 +1,51 @@
+<app-layout></app-layout>
+
+<div class="page-content justify-content-center text-center">
+  <div class="subheader">
+    <div class="container mt-2 mb-4 mr-1" style="direction: ltr">
+      <h3 *ngIf="editMode"><b>Modifier un utilisateur : </b></h3>
+      <h3 *ngIf="!editMode"><b>Ajouter un utilisateur : </b></h3>
+      <form  [formGroup]="userForm" (ngSubmit)="createUser()">
+        <mat-form-field style="width: 300px;">
+          <input formControlName="nom" matInput placeholder="nom" type="text">
+        </mat-form-field><br>
+        <mat-form-field style="width: 300px;">
+          <input formControlName="prenom" matInput placeholder="prénom" type="text">
+        </mat-form-field><br>
+        <mat-form-field style="width: 300px;">
+          <input *ngIf="!editMode" formControlName="cin" matInput placeholder="CIN" type="text">
+          <input *ngIf="editMode" disabled="true" [value]="user?.cin" matInput placeholder="CIN" type="text">
+        </mat-form-field><br>
+        <mat-form-field style="width: 300px;">
+          <input formControlName="age" matInput placeholder="age" type="number">
+        </mat-form-field><br>
+        <mat-form-field style="width: 300px;">
+          <input formControlName="email" matInput placeholder="email" type="email">
+        </mat-form-field><br>
+        <mat-form-field style="width: 300px;">
+          <input formControlName="telephone" matInput placeholder="telephone" type="text">
+        </mat-form-field><br>
+        <mat-form-field style="width: 300px;">
+          <input formControlName="password" matInput placeholder="Password" type="password" [type]="passwordFieldType">
+          <mat-icon matSuffix (click)="togglePasswordVisibility()">
+            {{ showPassword ? 'visibility_off' : 'visibility' }}
+          </mat-icon>
+        </mat-form-field><br>
+        <mat-form-field style="width: 300px;">
+          <mat-select [(ngModel)]="selectedRole"  formControlName="role" class="form-select" name="role" id="role" required [value]="selectedRole">
+            <mat-option *ngFor="let role of roles" [value]="role">
+              <b>{{ role }}</b>
+            </mat-option>
+          </mat-select>
+        </mat-form-field><br>
+        <button
+               [disabled]="userForm?.invalid"
+                class=" mt-2 justify-content-center btn btn-primary" style="width: 300px; background: #8a2226db"
+                [ngStyle]="{'opacity': userForm?.invalid ? '0.4' : '1',
+                    'color': userForm?.invalid ? 'black' : 'white',
+                    'background-color': userForm?.invalid ? 'gray' : '#8a2226db'}"
+                 type="submit">{{ !editMode ? 'Ajouter' : 'Modifier'}}</button>
+      </form>
+    </div>
+  </div>
+</div>

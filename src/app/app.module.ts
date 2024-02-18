@@ -16,8 +16,10 @@ import {ToastrModule} from "ngx-toastr";
 import {MatPaginatorIntl} from "@angular/material/paginator";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {CustomPaginatorIntl} from "./shared/CustomPaginatorIntl";
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import {LayoutModule} from "./core/layout/layout.module";
+import {UtilisateursModule} from "./pages/utilisateurs/utilisateurs.module";
+import {AddUtilisateurModule} from "./pages/utilisateurs/add-utilisateur/add-utilisateur.module";
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import {LayoutModule} from "./core/layout/layout.module";
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
+    MatPaginatorModule,
     NgOptimizedImage,
     NgxSpinnerModule.forRoot({type: 'ball-clip-rotate-pulse'}),
     ToastrModule.forRoot({
