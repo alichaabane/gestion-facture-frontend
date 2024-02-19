@@ -17,6 +17,7 @@ export class AddProduitComponent implements OnInit {
   produit: any;
   fournisseurs =  [];
   selectedFournisseur = null;
+  fournisseurNom = null;
 
   constructor(private router: Router,
               private route: ActivatedRoute,
@@ -94,6 +95,7 @@ export class AddProduitComponent implements OnInit {
 
 
   createProduit() {
+    console.log(this.produitForm.status)
     if (this.produitForm.valid) {
       let produitData = this.produitForm.value;
       console.log(produitData);
