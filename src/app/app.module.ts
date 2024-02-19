@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
 import {SharedModule} from "./shared/shared.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
@@ -16,10 +16,12 @@ import {ToastrModule} from "ngx-toastr";
 import {MatPaginatorIntl} from "@angular/material/paginator";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {CustomPaginatorIntl} from "./shared/CustomPaginatorIntl";
-import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatPaginatorModule} from '@angular/material/paginator';
 import {LayoutModule} from "./core/layout/layout.module";
 import {UtilisateursModule} from "./pages/utilisateurs/utilisateurs.module";
 import {AddUtilisateurModule} from "./pages/utilisateurs/add-utilisateur/add-utilisateur.module";
+import {ProduitsModule} from "./pages/produits/produits.module";
+import {AddProduitModule} from "./pages/produits/add-produit/add-produit.module";
 
 @NgModule({
   declarations: [
@@ -31,6 +33,10 @@ import {AddUtilisateurModule} from "./pages/utilisateurs/add-utilisateur/add-uti
     AppRoutingModule,
     HttpClientModule,
     MatPaginatorModule,
+    UtilisateursModule,
+    AddUtilisateurModule,
+    ProduitsModule,
+    AddProduitModule,
     NgOptimizedImage,
     NgxSpinnerModule.forRoot({type: 'ball-clip-rotate-pulse'}),
     ToastrModule.forRoot({
@@ -47,15 +53,16 @@ import {AddUtilisateurModule} from "./pages/utilisateurs/add-utilisateur/add-uti
     LayoutModule
   ],
   providers: [
-    { provide: MatDialogRef, useValue: {}}, { provide: MAT_DIALOG_DATA, useValue: {} },
+    {provide: MatDialogRef, useValue: {}}, {provide: MAT_DIALOG_DATA, useValue: {}},
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthenticationInterceptor,
       multi: true
     },
-    { provide: MatPaginatorIntl, useClass: CustomPaginatorIntl },
+    {provide: MatPaginatorIntl, useClass: CustomPaginatorIntl},
   ],
   exports: [SharedModule, CoreModule],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

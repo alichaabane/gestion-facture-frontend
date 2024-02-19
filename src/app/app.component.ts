@@ -58,7 +58,7 @@ export class AppComponent implements  OnInit, AfterViewInit {
             }
           },
           (error: any) => {
-            if (error.status == 500) {
+            if (error.status == 500 || error.status == 401) {
               this.userService.removeAllStorage();
             }
             console.log('error loading current user info = ', error);

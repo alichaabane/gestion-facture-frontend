@@ -7,12 +7,13 @@ import {UtilisateursComponent} from "./pages/utilisateurs/utilisateurs.component
 import {DashboardComponent} from "./pages/dashboard/dashboard.component";
 import {AuthGuard} from "./core/guards/auth.guard";
 import {AddUtilisateurComponent} from "./pages/utilisateurs/add-utilisateur/add-utilisateur.component";
+import {AddProduitComponent} from "./pages/produits/add-produit/add-produit.component";
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'produits', // Redirect to 'produits'
+    redirectTo: 'dashboard', // Redirect to 'dashboard'
   },
   {
     path: 'login',
@@ -29,9 +30,19 @@ const routes: Routes = [
   {
     path: 'produits',
     canActivate: [AuthGuard], // Apply the guard to this route
-    component: ProduitsComponent,
-    loadChildren: () =>
-      import('./pages/produits/produits.module').then((m) => m.ProduitsModule),
+    component: ProduitsComponent
+  },
+  {
+    path: 'add-produit',
+    canActivate: [AuthGuard], // Apply the guard to this route
+    component: AddProduitComponent,
+    data: { editMode: false }, // Add this data property to indicate "add" mode
+  },
+  {
+    path: 'edit-produit/:id', // Use a parameter for the produit ID
+    canActivate: [AuthGuard], // Apply the guard to this route
+    component: AddProduitComponent,
+    data: { editMode: true }, // Add this data property to indicate "edit" mode
   },
   {
     path: 'utilisateurs',

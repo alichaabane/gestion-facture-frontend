@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 import {RouterModule} from "@angular/router";
+import {UserService} from "./services/http/user.service";
+import {ProduitService} from "./services/http/produit.service";
 
 @NgModule({
   declarations: [],
@@ -11,6 +13,6 @@ import {RouterModule} from "@angular/router";
     SharedModule
   ],
   exports: [],
-  providers: []
+  providers: [UserService, ProduitService]
 })
 export class CoreModule { }
