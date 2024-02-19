@@ -6,7 +6,7 @@ import {SweetAlertService} from "../../../core/services/in-app/sweet-alert.servi
 import {FournisseurService} from "../../../core/services/http/fournisseur.service";
 
 @Component({
-  selector: 'app-add-produit',
+  selector: 'app-add-fournisseur',
   templateUrl: './add-produit.component.html',
   styleUrls: ['./add-produit.component.scss']
 })
@@ -62,7 +62,7 @@ export class AddProduitComponent implements OnInit {
   initForm() {
     this.produitForm = this.fb.group({
       nom: ['', [Validators.required, Validators.minLength(3), Validators.pattern('^[\u0600-\u06FFa-zA-Z0-9 ]+$')]],
-      description: ['', [Validators.required, Validators.minLength(3), Validators.pattern('^[\u0600-\u06FFa-zA-Z0-9 ]+$')]],
+      description: ['', [Validators.required]],
       quantiteEnStock: [0, Validators.required],
       prix: [0.0, Validators.required],
       fournisseurId: [this.selectedFournisseur, [Validators.required]], //TODO fournisseur id (select options)

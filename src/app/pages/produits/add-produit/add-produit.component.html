@@ -2,7 +2,7 @@
 
 <div class="page-content justify-content-center text-center">
   <div class="subheader">
-    <div class="container mt-2 mb-4 mr-1" style="direction: ltr">
+    <div class="container mt-2 mb-4 mr-1" style="direction: ltr" fxLayout="column" fxLayoutAlign="center center">
       <h3 *ngIf="editMode"><b>Modifier un produit : </b></h3>
       <h3 *ngIf="!editMode"><b>Ajouter un produit : </b></h3>
       <form  [formGroup]="produitForm" (ngSubmit)="createProduit()">
@@ -14,7 +14,7 @@
           <input formControlName="nom" matInput placeholder="nom" type="text">
         </mat-form-field><br>
         <mat-form-field style="width: 300px; height: 100px">
-          <textarea formControlName="description" matInput placeholder="description" type="text"></textarea>
+          <input formControlName="description" matInput placeholder="description" type="text">
         </mat-form-field><br>
         <mat-form-field style="width: 300px;">
           <input formControlName="prix" matInput placeholder="prix" type="number">
@@ -23,7 +23,8 @@
           <input formControlName="quantiteEnStock" matInput placeholder="quantiteEnStock" type="number">
         </mat-form-field><br>
         <mat-form-field style="width: 300px;">
-          <mat-select [(ngModel)]="selectedFournisseur"  formControlName="fournisseurId" class="form-select" name="role" id="fournisseurId" required [value]="selectedFournisseur">
+          <mat-select [(ngModel)]="selectedFournisseur"  formControlName="fournisseurId"
+                      name="fournisseurId" id="fournisseurId" required [value]="selectedFournisseur">
             <mat-option *ngFor="let fournisseur of fournisseurs" [value]="fournisseur.id">
               <b>{{ fournisseur.nom }}</b>
             </mat-option>

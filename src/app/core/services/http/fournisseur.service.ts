@@ -20,20 +20,19 @@ export class FournisseurService {
     return this.http.get(`${this.FOURNISSEUR_URL}`);
   }
 
-  deleteFournisseurs(productId: any): Observable<any> {
+  deleteFournisseur(productId: any): Observable<any> {
     return this.http.delete<any>(`${this.FOURNISSEUR_URL}/${productId}`);
   }
 
-  updateFournisseurs(productId: any): Observable<any> {
-    const url = `${this.FOURNISSEUR_URL}/${productId}`;
-    return this.http.put<any>(url, productId);
+  updateFournisseur(fournisseurId: number, newFournisseur: any): Observable<any> {
+    return this.http.put<any>(`${this.FOURNISSEUR_URL}/${fournisseurId}`, newFournisseur);
   }
 
-  saveFournisseurs(fournisseur: any) : Observable<any> {
+  saveFournisseur(fournisseur: any) : Observable<any> {
     return this.http.post(`${this.FOURNISSEUR_URL}`, fournisseur);
   }
 
-  getFournisseursById(productId: any): Observable<any> {
+  getFournisseurById(productId: any): Observable<any> {
     const url = `${this.FOURNISSEUR_URL}/${productId}`;
     return this.http.get(url);
   }

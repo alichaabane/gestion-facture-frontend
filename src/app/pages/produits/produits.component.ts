@@ -38,25 +38,9 @@ export class ProduitsComponent implements OnInit {
     })
   }
 
-  // getFournisseurById(fournisseurId): void {
-  //   this.fournisseurService.getFournisseursById(fournisseurId).subscribe( (res: any) => {
-  //     if(res) {
-  //       this.fournisseur = res;
-  //
-  //       console.log('Fournisseur = ', this.fournisseur);
-  //     }
-  //   }, error => {
-  //     this.fournisseur = null;
-  //     return "";
-  //     console.log("error fetching fournisseur ! ");
-  //   }, () => {
-  //
-  //   })
-  // }
-
 
   addNewProduit() {
-    // Navigate to the "add-produit" route with "editMode" set to false
+    // Navigate to the "add-fournisseur" route with "editMode" set to false
     this.router.navigate(['/add-produit', { editMode: false }]);
   }
 

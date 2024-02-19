@@ -1,0 +1,28 @@
+<app-layout></app-layout>
+
+<div class="page-content justify-content-center text-center">
+  <div class="subheader">
+    <div class="container mt-2 mb-4 mr-1" style="direction: ltr">
+      <h3 *ngIf="editMode"><b>Modifier un fournisseur : </b></h3>
+      <h3 *ngIf="!editMode"><b>Ajouter un fournisseur : </b></h3>
+      <form  [formGroup]="fournisseurForm" (ngSubmit)="createFournisseur()">
+        <mat-form-field style="width: 300px;">
+          <input formControlName="nom" matInput placeholder="nom" type="text">
+        </mat-form-field><br>
+        <mat-form-field style="width: 300px; height: 100px">
+          <input formControlName="adresse" matInput placeholder="adresse" type="text">
+        </mat-form-field><br>
+        <mat-form-field style="width: 300px;">
+          <input formControlName="contact" matInput placeholder="contact" type="text">
+        </mat-form-field><br>
+        <button
+               [disabled]="fournisseurForm?.invalid"
+                class=" mt-2 justify-content-center btn btn-primary" style="width: 300px; background: #8a2226db"
+                [ngStyle]="{'opacity': fournisseurForm?.invalid ? '0.4' : '1',
+                    'color': fournisseurForm?.invalid ? 'black' : 'white',
+                    'background-color': fournisseurForm?.invalid ? 'gray' : '#8a2226db'}"
+                 type="submit">{{ !editMode ? 'Ajouter' : 'Modifier'}}</button>
+      </form>
+    </div>
+  </div>
+</div>

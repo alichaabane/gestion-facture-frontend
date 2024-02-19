@@ -8,6 +8,8 @@ import {DashboardComponent} from "./pages/dashboard/dashboard.component";
 import {AuthGuard} from "./core/guards/auth.guard";
 import {AddUtilisateurComponent} from "./pages/utilisateurs/add-utilisateur/add-utilisateur.component";
 import {AddProduitComponent} from "./pages/produits/add-produit/add-produit.component";
+import {FournisseursComponent} from "./pages/fournisseurs/fournisseurs.component";
+import {AddFournisseurComponent} from "./pages/fournisseurs/add-fournisseur/add-fournisseur.component";
 
 const routes: Routes = [
   {
@@ -39,10 +41,15 @@ const routes: Routes = [
     data: { editMode: false }, // Add this data property to indicate "add" mode
   },
   {
-    path: 'edit-produit/:id', // Use a parameter for the produit ID
+    path: 'fournisseurs',
     canActivate: [AuthGuard], // Apply the guard to this route
-    component: AddProduitComponent,
-    data: { editMode: true }, // Add this data property to indicate "edit" mode
+    component: FournisseursComponent
+  },
+  {
+    path: 'add-fournisseur',
+    canActivate: [AuthGuard], // Apply the guard to this route
+    component: AddFournisseurComponent,
+    data: { editMode: false }, // Add this data property to indicate "add" mode
   },
   {
     path: 'utilisateurs',
@@ -54,12 +61,6 @@ const routes: Routes = [
     canActivate: [AuthGuard], // Apply the guard to this route
     component: AddUtilisateurComponent,
     data: { editMode: false }, // Add this data property to indicate "add" mode
-  },
-  {
-    path: 'edit-utilisateur/:id', // Use a parameter for the Utilisateur ID
-    canActivate: [AuthGuard], // Apply the guard to this route
-    component: AddUtilisateurComponent,
-    data: { editMode: true }, // Add this data property to indicate "edit" mode
   },
 // Add other routes for 'utilisateurs' here if needed
 
