@@ -359,10 +359,14 @@
 
 .panel-header {
   height: 260px;
+  @media screen and (max-width: 420px) {
+    padding-top: 0;
+    padding-left: 0;
+    padding-bottom: 45px;
+  }
   padding-top: 80px;
   padding-left: 300px;
   padding-bottom: 45px;
-  @include panel-gradient($black-color);
   position: relative;
   overflow: hidden;
 

@@ -37,6 +37,9 @@ export class ProduitService {
     return this.http.get(url);
   }
 
+  getTotalProduits(): Observable<number> {
+    return this.http.get<number>(`${this.PRODUIT_URL}/count`);
+  }
 
   getAllProduitsPaginated(page: number, pageSize: number): Observable<Pagination<any>>  {
     // Set up query parameters for pagination

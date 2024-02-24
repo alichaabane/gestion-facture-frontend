@@ -81,6 +81,10 @@ export class UserService {
     return this.http.get(url);
   }
 
+  getTotalUsers(): Observable<number> {
+    return this.http.get<number>(`${this.USER_URL}/count`);
+  }
+
   // Local storage token / user
 
   public setToken(token: any): void {

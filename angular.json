@@ -43,11 +43,15 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/ngx-spinner/animations/ball-clip-rotate-pulse.css",
               "src/assets/styles/now-ui-dashboard.scss",
+              "src/assets/styles/scss/material-dashboard.scss",
               "src/assets/styles/toastr.css",
               "node_modules/bootstrap/scss/bootstrap.scss",
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
             ],
             "scripts": [
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/popper.js/dist/umd/popper.js",
+              "node_modules/bootstrap-material-design/dist/js/bootstrap-material-design.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.js",
               "node_modules/jquery/dist/jquery.min.js"
             ]
@@ -120,11 +124,15 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/ngx-spinner/animations/ball-clip-rotate-pulse.css",
               "src/assets/styles/now-ui-dashboard.scss",
+              "src/assets/styles/scss/material-dashboard.scss",
               "src/assets/styles/toastr.css",
               "node_modules/bootstrap/scss/bootstrap.scss",
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
             ],
             "scripts": [
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/popper.js/dist/umd/popper.js",
+              "node_modules/bootstrap-material-design/dist/js/bootstrap-material-design.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.js",
               "node_modules/jquery/dist/jquery.min.js"
             ]

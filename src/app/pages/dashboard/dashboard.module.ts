@@ -13,6 +13,7 @@ import {NgxSpinnerModule} from "ngx-spinner";
 import {LayoutModule} from "../../core/layout/layout.module";
 import { NgChartsModule} from "ng2-charts";
 import {RouterOutlet} from "@angular/router";
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 @NgModule({
   declarations: [DashboardComponent],
@@ -28,6 +29,7 @@ import {RouterOutlet} from "@angular/router";
     ReactiveFormsModule,
     NgbTooltipModule,
     NgxSpinnerModule,
+    MatTooltipModule,
     LayoutModule,
     NgbDropdown,
     NgbDropdownMenu,

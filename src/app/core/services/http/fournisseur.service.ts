@@ -37,6 +37,10 @@ export class FournisseurService {
     return this.http.get(url);
   }
 
+  getTotalFournisseurs(): Observable<number> {
+    return this.http.get<number>(`${this.FOURNISSEUR_URL}/count`);
+  }
+
 
   getAllFournisseursPaginated(page: number, pageSize: number): Observable<Pagination<any>>  {
     // Set up query parameters for pagination
