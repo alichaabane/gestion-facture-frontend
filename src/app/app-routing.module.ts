@@ -12,6 +12,7 @@ import {FournisseursComponent} from "./pages/fournisseurs/fournisseurs.component
 import {AddFournisseurComponent} from "./pages/fournisseurs/add-fournisseur/add-fournisseur.component";
 import {FacturesComponent} from "./pages/factures/factures.component";
 import {GenerateFactureComponent} from "./pages/generate-facture/generate-facture.component";
+import {ForgetPasswordComponent} from "./pages/forget-password/forget-password.component";
 
 const routes: Routes = [
   {
@@ -24,6 +25,12 @@ const routes: Routes = [
     component: LoginComponent,
     loadChildren: () =>
       import('./pages/login/login.module').then((m) => m.LoginModule),
+  },
+  {
+    path: 'forget-password',
+    component: ForgetPasswordComponent,
+    loadChildren: () =>
+      import('./pages/forget-password/forget-password.module').then((m) => m.ForgetPasswordModule),
   },
   {
     path: 'register',

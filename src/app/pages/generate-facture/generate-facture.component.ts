@@ -83,6 +83,10 @@ export class GenerateFactureComponent implements OnInit {
   }
 
   handleRowSelection(row: any) {
+    if(row === null) {
+      this.selectedProduits = [];
+      return;
+    }
     const index = this.selectedProduits.findIndex((item) => item.id === row.id);
 
     if (row.isSelected) {
@@ -120,6 +124,7 @@ export class GenerateFactureComponent implements OnInit {
             this.factureForm.clearValidators();
             this.factureForm.clearAsyncValidators();
             this.selectAll(null);
+            this.handleRowSelection(null);
             this.selectedProduits = [];
             this.selectAllChecked = false;
           }

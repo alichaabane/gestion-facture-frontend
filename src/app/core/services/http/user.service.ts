@@ -85,6 +85,10 @@ export class UserService {
     return this.http.get<number>(`${this.USER_URL}/count`);
   }
 
+  forgetPassword(email: any): Observable<any> {
+    return this.http.post<any>(`${this.AUTH_URL}/forget-password`, email);
+  }
+
   // Local storage token / user
 
   public setToken(token: any): void {
