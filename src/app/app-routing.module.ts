@@ -11,6 +11,7 @@ import {AddProduitComponent} from "./pages/produits/add-produit/add-produit.comp
 import {FournisseursComponent} from "./pages/fournisseurs/fournisseurs.component";
 import {AddFournisseurComponent} from "./pages/fournisseurs/add-fournisseur/add-fournisseur.component";
 import {FacturesComponent} from "./pages/factures/factures.component";
+import {GenerateFactureComponent} from "./pages/generate-facture/generate-facture.component";
 
 const routes: Routes = [
   {
@@ -56,6 +57,10 @@ const routes: Routes = [
     path: 'factures',
     canActivate: [AuthGuard], // Apply the guard to this route
     component: FacturesComponent
+  },  {
+    path: 'generate-facture',
+    canActivate: [AuthGuard], // Apply the guard to this route
+    component: GenerateFactureComponent
   },
   {
     path: 'utilisateurs',

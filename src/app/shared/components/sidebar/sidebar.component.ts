@@ -12,10 +12,10 @@ declare interface RouteInfo {
 
 export const ROUTES: RouteInfo[] = [
   {path: '/dashboard', title: 'Tableau de bord', isAdminPage: false, icon: 'business_chart-bar-32', class: ''},
+  {path: '/factures', title: 'Liste Factures', isAdminPage: true, icon: 'files_single-copy-04', class: ''},
+  {path: '/generate-facture', title: 'Génerer Facture', isAdminPage: false, icon: 'files_paper', class: ''},
   {path: '/produits', title: 'Liste Produits', isAdminPage: true, icon: 'shopping_basket', class: ''},
   {path: '/fournisseurs', title: 'Liste Fournisseurs', isAdminPage: true, icon: 'shopping_delivery-fast', class: ''},
-  // {path: '/generate-facture', title: 'Géneration Factures', isAdminPage: false, icon: 'files_paper', class: ''},
-  {path: '/factures', title: 'Liste Factures', isAdminPage: true, icon: 'files_single-copy-04', class: ''},
   {path: '/utilisateurs', title: 'Liste Utilisateurs', isAdminPage: true, icon: 'ft-user-check', class: ''},
   {path: '/login', title: 'Déconnecter', isAdminPage: false, icon: 'media-1_button-power', class: ''},
 ];

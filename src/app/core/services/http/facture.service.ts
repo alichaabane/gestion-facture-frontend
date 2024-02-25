@@ -20,8 +20,8 @@ export class FactureService {
     return this.http.get(`${this.FACTURE_URL}`);
   }
 
-  deleteFacture(productId: any): Observable<any> {
-    return this.http.delete<any>(`${this.FACTURE_URL}/${productId}`);
+  deleteFacture(factureId: any): Observable<any> {
+    return this.http.delete<any>(`${this.FACTURE_URL}/${factureId}`);
   }
 
   updateFacture(productId: number, newFacture: any): Observable<any> {
@@ -29,7 +29,7 @@ export class FactureService {
   }
 
   saveFacture(facture: any) : Observable<any> {
-    return this.http.post(`${this.FACTURE_URL}`, facture);
+    return this.http.post(`${this.FACTURE_URL}`, facture, { responseType: 'arraybuffer' });
   }
 
   getFactureById(productId: any): Observable<any> {

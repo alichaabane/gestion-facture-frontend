@@ -22,6 +22,7 @@
                 <th scope="col" class="text-center font-weight-bold" style="width: 180px">Nom CLient</th>
                 <th scope="col" class="text-center font-weight-bold" style="width: 180px">Prénom CLient</th>
                 <th scope="col" class="text-center font-weight-bold" style="width: 180px">Numéro Telephone Client</th>
+                <th scope="col" class="text-center font-weight-bold" style="width: 180px">Adresse Client</th>
                 <th scope="col" class="text-center font-weight-bold" style="width: 140px" *ngIf="factures?.content.length > 0">Actions</th>
               </tr>
               </thead>
@@ -30,10 +31,11 @@
                 <ng-container>
                   <tr *ngFor="let facture of factures?.content">
                     <td class="text-center">{{ facture.id }}</td>
-                    <td class="text-center">{{ facture.createdAt | date }}</td>
+                    <td class="text-center">{{ facture?.createdAt | date: 'dd/MM/yyyy HH:mm' }}</td>
                     <td class="text-center">{{ facture.nomClient }}</td>
                     <td class="text-center">{{ facture.prenomClient }}</td>
                     <td class="text-center">{{ facture.numTelClient }}</td>
+                    <td class="text-center">{{ facture.adresseClient }}</td>
 
                     <td class="text-center sticky-col first-col actions" *ngIf="factures?.content.length > 0">
                       <div>

@@ -25,6 +25,7 @@ import {AddProduitModule} from "./pages/produits/add-produit/add-produit.module"
 import {FournisseursModule} from "./pages/fournisseurs/fournisseurs.module";
 import {AddFournisseurModule} from "./pages/fournisseurs/add-fournisseur/add-fournisseur.module";
 import {FacturesModule} from "./pages/factures/factures.module";
+import {GenerateFactureModule} from "./pages/generate-facture/generate-facture.module";
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import {FacturesModule} from "./pages/factures/factures.module";
     FournisseursModule,
     AddFournisseurModule,
     FacturesModule,
+    GenerateFactureModule,
     NgOptimizedImage,
     NgxSpinnerModule.forRoot({type: 'ball-clip-rotate-pulse'}),
     ToastrModule.forRoot({

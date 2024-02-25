@@ -23,6 +23,7 @@ export class FacturesComponent implements OnInit {
     this.loadFactures(this.pageNumber, this.pageSize);
   }
 
+
   loadFactures(pageNumber: number, pageSize: number): void {
     this.factureService.getAllFacturesPaginated(pageNumber, pageSize).subscribe( (paginatedResponse: any) => {
       if(paginatedResponse) {
@@ -34,6 +35,8 @@ export class FacturesComponent implements OnInit {
       console.log("error fetching factures ! ");
     })
   }
+
+
 
   deleteFacture(facture, $event: MouseEvent) {
     console.log('facture to delete = ', facture);

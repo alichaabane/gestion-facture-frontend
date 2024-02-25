@@ -1,0 +1,87 @@
+<app-layout></app-layout>
+
+<div class="page-content">
+  <div class="subheader">
+    <div class="container mt-2 mb-4 mr-1">
+      <div class="action-btns align-content-end invisible">
+        <button mat-mini-fab color="primary"
+                placement="left"
+                tooltipClass="custom-tooltip"
+                ngbTooltip="{{'Ajouter un nouveau facture'}}">
+          <em class="ft-plus"></em>
+        </button>
+      </div>
+      <div class="row justify-content-center text-center">
+        <h4><b>Génération d'une nouvelle facture :</b></h4>
+        <form  [formGroup]="factureForm" (ngSubmit)="generateFacture()">
+          <mat-form-field style="width: 300px;">
+            <input formControlName="nomClient" matInput placeholder="nom Client" type="text">
+          </mat-form-field><br>
+          <mat-form-field style="width: 300px;">
+            <input formControlName="prenomClient" matInput placeholder="prenom Client" type="text">
+          </mat-form-field><br>
+          <mat-form-field style="width: 300px;">
+            <input formControlName="numTelClient" matInput placeholder="numéro Téléphone Client" type="text">
+          </mat-form-field><br>
+          <mat-form-field style="width: 300px;">
+            <input formControlName="adresseClient" matInput placeholder="Adresse Client" type="text">
+          </mat-form-field><br>
+
+          <div class="col-lg-12">
+            <h5><u><b>Liste des produits :</b></u></h5>
+
+              <mat-table [dataSource]="produits" class="mat-elevation-z8 m-4">
+                <ng-container matColumnDef="select">
+                  <mat-header-cell *matHeaderCellDef>
+                    <mat-checkbox (change)="selectAll($event)"></mat-checkbox>
+                  </mat-header-cell>
+                  <mat-cell *matCellDef="let row">
+                    <mat-checkbox [ngModelOptions]="{standalone: true}" [(ngModel)]="row.isSelected" (click)="handleRowSelection(row)"></mat-checkbox>
+                  </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="nom">
+                  <mat-header-cell *matHeaderCellDef>Nom</mat-header-cell>
+                  <mat-cell *matCellDef="let row">{{ row.nom }}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="description">
+                  <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
+                  <mat-cell *matCellDef="let row">{{ row.description }}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="fournisseur">
+                  <mat-header-cell *matHeaderCellDef>Fournisseur</mat-header-cell>
+                  <mat-cell *matCellDef="let row">{{ row.fournisseurNom }}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="quantite">
+                  <mat-header-cell *matHeaderCellDef>Quantite en Stock</mat-header-cell>
+                  <mat-cell *matCellDef="let row">{{ row.quantiteEnStock }}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="prix">
+                  <mat-header-cell *matHeaderCellDef>Prix (en DT)</mat-header-cell>
+                  <mat-cell *matCellDef="let row">{{ row.prix | currency:'TND':'symbol' }}</mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+              </mat-table>
+
+              <mat-paginator [length]="produits?.length" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]" (page)="onPageChange($event)">
+              </mat-paginator>
+            </div>
+
+          <button
+            [disabled]="factureForm?.invalid"
+            class=" mt-2 justify-content-center btn btn-primary" style="width: 300px; background: #8a2226db"
+            [ngStyle]="{'opacity': factureForm?.invalid ? '0.4' : '1',
+                    'color': factureForm?.invalid ? 'black' : 'white',
+                    'background-color': factureForm?.invalid ? 'gray' : '#8a2226db'}"
+            type="submit">{{ 'Génerer la facture' }}</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
