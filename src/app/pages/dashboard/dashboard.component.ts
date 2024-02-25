@@ -282,7 +282,7 @@ export class DashboardComponent implements OnInit {
       };
 
       this.canvas = document.getElementById("lineChartExample");
-      this.ctx = this.canvas.getContext("2d");
+      this.ctx = this.canvas.getContext("2d") ? this.canvas.getContext("2d")  : null;
 
       this.gradientStroke = this.ctx.createLinearGradient(500, 0, 100, 0);
       this.gradientStroke.addColorStop(0, '#80b6f4');

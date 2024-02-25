@@ -6,7 +6,7 @@ import {SweetAlertService} from "../../../core/services/in-app/sweet-alert.servi
 import {FournisseurService} from "../../../core/services/http/fournisseur.service";
 
 @Component({
-  selector: 'app-add-fournisseur',
+  selector: 'app-add-facture',
   templateUrl: './add-produit.component.html',
   styleUrls: ['./add-produit.component.scss']
 })

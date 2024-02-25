@@ -40,7 +40,7 @@ export class ProduitsComponent implements OnInit {
 
 
   addNewProduit() {
-    // Navigate to the "add-fournisseur" route with "editMode" set to false
+    // Navigate to the "add-facture" route with "editMode" set to false
     this.router.navigate(['/add-produit', { editMode: false }]);
   }
 

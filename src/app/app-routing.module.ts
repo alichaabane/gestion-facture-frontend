@@ -10,6 +10,7 @@ import {AddUtilisateurComponent} from "./pages/utilisateurs/add-utilisateur/add-
 import {AddProduitComponent} from "./pages/produits/add-produit/add-produit.component";
 import {FournisseursComponent} from "./pages/fournisseurs/fournisseurs.component";
 import {AddFournisseurComponent} from "./pages/fournisseurs/add-fournisseur/add-fournisseur.component";
+import {FacturesComponent} from "./pages/factures/factures.component";
 
 const routes: Routes = [
   {
@@ -50,6 +51,11 @@ const routes: Routes = [
     canActivate: [AuthGuard], // Apply the guard to this route
     component: AddFournisseurComponent,
     data: { editMode: false }, // Add this data property to indicate "add" mode
+  },
+  {
+    path: 'factures',
+    canActivate: [AuthGuard], // Apply the guard to this route
+    component: FacturesComponent
   },
   {
     path: 'utilisateurs',

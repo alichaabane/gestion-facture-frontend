@@ -29,7 +29,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     this.userService.getCurrentUser().subscribe(res => {
       this.user = res ? res : this.userService.getUser();
-      console.log('usr = ', this.user)
+      console.log('user = ', this.user)
     })
     this.listTitles = ROUTES.filter(listTitle => listTitle);
     const navbar: HTMLElement = this.element.nativeElement;
