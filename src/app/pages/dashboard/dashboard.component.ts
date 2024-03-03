@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {UserService} from "../../core/services/http/user.service";
-import {forkJoin} from "rxjs";
+import {forkJoin, interval, startWith, switchMap} from "rxjs";
 import {FournisseurService} from "../../core/services/http/fournisseur.service";
 import {ProduitService} from "../../core/services/http/produit.service";
 import {FactureService} from "../../core/services/http/facture.service";
@@ -48,14 +48,13 @@ export class DashboardComponent implements OnInit {
   totalFactures: number = 0;
   totalProduits: number = 0;
 
-
   // events
   public chartClicked(e: any): void {
-    console.log(e);
+    // console.log(e);
   }
 
   public chartHovered(e: any): void {
-    console.log(e);
+    // console.log(e);
   }
 
   public hexToRGB(hex, alpha) {
@@ -438,7 +437,7 @@ export class DashboardComponent implements OnInit {
   countUsersByMonth() {
     this.userService.countUsersByMonth().subscribe(res => {
       this.countUsersByMonthData = res;
-      console.log(this.countUsersByMonthData)
+      // console.log(this.countUsersByMonthData);
     }, error => {
       this.countUsersByMonthData = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     });
@@ -464,6 +463,7 @@ export class DashboardComponent implements OnInit {
       }
     );
   }
+
 
   protected readonly Date = Date;
 }

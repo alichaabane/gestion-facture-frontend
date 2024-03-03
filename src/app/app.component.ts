@@ -10,7 +10,7 @@ import {UserService} from "./core/services/http/user.service";
 })
 export class AppComponent implements  OnInit, AfterViewInit {
   title = 'gestion-facture';
-  currentRoute: string = null;
+  currentRoute: string;
   location: Location;
 
   constructor(public router: Router, public route: ActivatedRoute, private userService: UserService) {
@@ -19,6 +19,7 @@ export class AppComponent implements  OnInit, AfterViewInit {
       .subscribe(() => {
         setTimeout(() => {
           this.currentRoute = this.route.root.firstChild?.snapshot.routeConfig?.path || null;
+          console.log(this.currentRoute);
           if(!this.currentRoute) {
             this.router.navigate(['/dashboard']).then();
           }
@@ -58,13 +59,30 @@ export class AppComponent implements  OnInit, AfterViewInit {
             }
           },
           (error: any) => {
-            if (error.status == 500 || error.status == 401) {
+            if (error.status == 500 || error.status == 401 || error.error  == "User not authenticated") {
               this.userService.removeAllStorage();
             }
             console.log('error loading current user info = ', error);
           }
         );
+    } else {
+      this.router.events
+        .pipe(filter(event => event instanceof NavigationEnd))
+        .subscribe(() => {
+          setTimeout(() => {
+            this.currentRoute = this.route.root.firstChild?.snapshot.routeConfig?.path || null;
+            console.log(this.currentRoute);
+            if (
+              this.currentRoute !== 'forget-password' &&
+              this.currentRoute !== 'reset-password' &&
+              this.currentRoute !== 'register'
+            ) {
+              this.userService.removeAllStorage();
+            }
+          })
+      });
     }
+
   }
 
 }
