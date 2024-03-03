@@ -74,7 +74,7 @@ export class AppComponent implements  OnInit, AfterViewInit {
             console.log(this.currentRoute);
             if (
               this.currentRoute !== 'forget-password' &&
-              this.currentRoute !== 'reset-password' &&
+              !this.currentRoute.includes('reset-password') &&
               this.currentRoute !== 'register'
             ) {
               this.userService.removeAllStorage();
