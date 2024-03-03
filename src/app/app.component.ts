@@ -73,9 +73,10 @@ export class AppComponent implements  OnInit, AfterViewInit {
             this.currentRoute = this.route.root.firstChild?.snapshot.routeConfig?.path || null;
             console.log(this.currentRoute);
             if (
-              this.currentRoute !== 'forget-password' &&
+              (this.currentRoute !== 'forget-password' &&
               !this.currentRoute.includes('reset-password') &&
-              this.currentRoute !== 'register'
+              this.currentRoute !== 'register')
+              && (!this.userService.getUser() || !this.userService.getToken())
             ) {
               this.userService.removeAllStorage();
             }
