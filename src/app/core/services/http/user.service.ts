@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {environment} from "../../../../environments/environment";
-import {HttpClient, HttpParams} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {BehaviorSubject, Observable} from "rxjs";
 import {Router} from "@angular/router";
 import {Pagination} from "../../models/Pagination";
@@ -85,8 +85,17 @@ export class UserService {
     return this.http.get<number>(`${this.USER_URL}/count`);
   }
 
-  forgetPassword(email: any): Observable<any> {
-    return this.http.post<any>(`${this.AUTH_URL}/forget-password`, email);
+  forgetPassword(email: string): Observable<any> {
+    const url = `${this.USER_URL}/reset?email=${encodeURIComponent(email)}`;
+    // Use encodeURIComponent to handle special characters in the email
+    return this.http.post(url, {});
+  }
+
+  resetNewPassword(token: string, newPassword: string): Observable<any> {
+    const url = `${this.USER_URL}/resetPassword`;
+    const body = { token: token, newPassword: newPassword };
+
+    return this.http.post(url, body);
   }
 
   // Local storage token / user

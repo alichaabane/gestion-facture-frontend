@@ -26,10 +26,12 @@ import {FournisseursModule} from "./pages/fournisseurs/fournisseurs.module";
 import {AddFournisseurModule} from "./pages/fournisseurs/add-fournisseur/add-fournisseur.module";
 import {FacturesModule} from "./pages/factures/factures.module";
 import {GenerateFactureModule} from "./pages/generate-facture/generate-facture.module";
+import {ForgetPasswordModule} from "./pages/forget-password/forget-password.module";
+import {ResetPasswordModule} from "./pages/reset-password/reset-password.module";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +41,8 @@ import {GenerateFactureModule} from "./pages/generate-facture/generate-facture.m
     MatPaginatorModule,
     UtilisateursModule,
     AddUtilisateurModule,
+    ForgetPasswordModule,
+    ResetPasswordModule,
     ProduitsModule,
     AddProduitModule,
     FournisseursModule,

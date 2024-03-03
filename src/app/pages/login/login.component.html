@@ -28,7 +28,7 @@
             </div>
             <br>
             <mat-form-field style="width: 350px;">
-              <input formControlName="password" class="pwd" matInput placeholder="password" type="password"
+              <input formControlName="password" class="pwd" matInput placeholder="mot de passe" type="password"
                      [type]="passwordFieldType">
               <mat-icon matSuffix (click)="togglePasswordVisibility()">
                 {{ showPassword ? 'visibility_off' : 'visibility' }}
@@ -36,7 +36,7 @@
             </mat-form-field>
             <div *ngIf="signInForm.get('password')?.hasError('required')  && signInForm.get('password')?.dirty"
                  class="text-danger">
-              Tapper le champ Password
+              Tapper le champ mot de passe
             </div>
             <br>
             <div class="justify-content-end text-end">

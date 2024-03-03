@@ -15,8 +15,6 @@ export class ForgetPasswordComponent implements OnInit {
   password: string = "";
   show: boolean = false;
 
-  passwordFieldType: string = 'password';
-  showPassword: boolean = false;
   signInForm: FormGroup;
 
   constructor(private fb: FormBuilder, private router: Router,
@@ -31,10 +29,24 @@ export class ForgetPasswordComponent implements OnInit {
   }
 
 
+  updatePassword(token: string, newPassword: string): void {
+    this.userService.resetNewPassword(token, newPassword).subscribe(
+      (response) => {
+        console.log('Password updated:', response);
+        // Handle the response as needed
+      },
+      (error) => {
+        console.error('Password update error:', error);
+        // Handle the error as needed
+      }
+    );
+  }
+
   async forgetPassword() {
     await this.spinner.show();
     if (this.signInForm.valid) {
-      this.userService.forgetPassword(this.signInForm.value).subscribe(
+      console.log(this.signInForm.value.email);
+      this.userService.forgetPassword(this.signInForm.value.email).subscribe(
         (res: any) => {
           if (res) {
            console.log("res forget password = ", res);

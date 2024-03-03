@@ -1,19 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {ResetPasswordComponent} from "./reset-password.component";
+import {MatCardModule} from "@angular/material/card";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatInputModule} from "@angular/material/input";
+import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {MatDialogModule} from "@angular/material/dialog";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NgbTooltipModule} from "@ng-bootstrap/ng-bootstrap";
-import {ForgetPasswordComponent} from "./forget-password.component";
-import {MatCardModule} from "@angular/material/card";
-import {MatInputModule} from "@angular/material/input";
-import {MatFormFieldModule} from "@angular/material/form-field";
 import {NgxSpinnerModule} from "ngx-spinner";
 import {RouterLink} from "@angular/router";
 
+
+
 @NgModule({
-  declarations: [ForgetPasswordComponent],
+  declarations: [ResetPasswordComponent],
   imports: [
     CommonModule,
     MatCardModule,
@@ -30,4 +32,4 @@ import {RouterLink} from "@angular/router";
   ]
 })
 
-export class ForgetPasswordModule { }
+export class ResetPasswordModule { }

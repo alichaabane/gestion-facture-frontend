@@ -46,12 +46,12 @@ export class AddUtilisateurComponent implements OnInit {
 
   initForm() {
     this.userForm = this.fb.group({
-      cin: [null, [Validators.required]],
+      cin: [null, [Validators.required, Validators.minLength(8), Validators.maxLength(8)]],
       nom: ['', [Validators.required, Validators.minLength(3), Validators.pattern('^[\u0600-\u06FFa-zA-Z0-9 ]+$')]],
       prenom: ['', [Validators.required, Validators.minLength(3), Validators.pattern('^[\u0600-\u06FFa-zA-Z0-9 ]+$')]],
       password: ['', [Validators.minLength(4)]],
       age: ['', [Validators.required]],
-      telephone: ['', [Validators.required, Validators.min(8)]],
+      telephone: ['', [Validators.required, Validators.minLength(8)]],
       email: ['', [Validators.required, Validators.email]],
       role: [this.selectedRole, [Validators.required]],
     });

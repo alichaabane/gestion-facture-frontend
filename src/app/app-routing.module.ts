@@ -13,6 +13,7 @@ import {AddFournisseurComponent} from "./pages/fournisseurs/add-fournisseur/add-
 import {FacturesComponent} from "./pages/factures/factures.component";
 import {GenerateFactureComponent} from "./pages/generate-facture/generate-facture.component";
 import {ForgetPasswordComponent} from "./pages/forget-password/forget-password.component";
+import {ResetPasswordComponent} from "./pages/reset-password/reset-password.component";
 
 const routes: Routes = [
   {
@@ -25,6 +26,12 @@ const routes: Routes = [
     component: LoginComponent,
     loadChildren: () =>
       import('./pages/login/login.module').then((m) => m.LoginModule),
+  },
+  {
+    path: 'reset-password/:token',
+    component: ResetPasswordComponent,
+    loadChildren: () =>
+      import('./pages/reset-password/reset-password.module').then((m) => m.ResetPasswordModule),
   },
   {
     path: 'forget-password',
